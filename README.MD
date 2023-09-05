@@ -13,7 +13,7 @@ Each model consists of a stack of blocks, where each block includes three convol
 The block input is processed by the four layers in parallel, and the four outputs are concatenated before being passed to a batch normalization layer followed by a ReLU activation. 
 
 A residual connection is applied between the input time series and the output of the second blocks, and after that between every three blocks. 
-The residual connection processes the inputs using an additional convolutional layer with a kernel size of 1 and batch normalization.
+The residual connection processes the inputs using an additional convolutional layer with a kernel size of 1 followed by a batch normalization layer.
 The processed inputs are then added to the output, which is transformed by a ReLU activation.
 
 The output of each model is passed to an average pooling layer which removes the time dimension, and then to a final output layer with softmax activation.
