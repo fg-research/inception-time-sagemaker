@@ -91,6 +91,8 @@ The algorithm supports only real-time inference endpoints. The inference image i
 See `notebook.ipynb` for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 See the sample output file `real_time_predictions.csv` in the `data/inference/output/real-time` folder.
 
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) 
+
 ## References
 - H. Ismail Fawaz, B. Lucas, G. Forestier, C. Pelletier, D.F. Schmidt, J. Weber, G.I. Webb, L. Idoumghar, P.A. Muller and F. Petitjean, 
 "InceptionTime: Finding AlexNet for Time Series Classification," *Data Mining and Knowledge Discovery*, vol. 34, no. 6, pp. 1936-1962, 
