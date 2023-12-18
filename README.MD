@@ -11,7 +11,7 @@ The only difference between the models is in the initial values of the parameter
 Each model consists of a stack of blocks, where each block includes three convolutional layers with kernel sizes of 10, 20 and 40 and a max pooling layer.
 The block input is processed by the four layers in parallel, and the four outputs are concatenated before being passed to a batch normalization layer followed by a ReLU activation. 
 
-A residual connection is applied between the input time series and the output of the second blocks, and after that between every three blocks. 
+A residual connection is applied between the input time series and the output of the second block, and after that between every three blocks. 
 The residual connection processes the inputs using an additional convolutional layer with a kernel size of 1 followed by a batch normalization layer.
 The processed inputs are then added to the output, which is transformed by a ReLU activation.
 
