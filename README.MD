@@ -6,7 +6,7 @@ The training and inference Docker images were built by extending the PyTorch 2.1
 ## Model Description
 InceptionTime is an ensemble model. 
 Each model in the ensemble has the same architecture and uses the same hyperparameters.
-The only difference between the models is in the initial values of the parameters, which are generated from the Glorot uniform distribution.
+The only difference between the models is in the initial values of the weights, which are generated from the Glorot uniform distribution.
 
 Each model consists of a stack of blocks, where each block includes three convolutional layers with kernel sizes of 10, 20 and 40 and a max pooling layer.
 The block input is processed by the four layers in parallel, and the four outputs are concatenated before being passed to a batch normalization layer followed by a ReLU activation. 
