@@ -89,7 +89,7 @@ The algorithm supports only real-time inference endpoints. The inference image i
 
 See [`notebook.ipynb`](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
-**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) [[Blog Post]](https://medium.com/@fg-research/time-series-classification-with-the-inceptiontime-sagemaker-algorithm-from-aws-marketplace-6bef9a205e9b?source=friends_link&sk=1b1722aad1ce73974298f01bf48b0833)
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) 
 
 ## References
 - H. Ismail Fawaz, B. Lucas, G. Forestier, C. Pelletier, D.F. Schmidt, J. Weber, G.I. Webb, L. Idoumghar, P.A. Muller and F. Petitjean, 
