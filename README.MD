@@ -6,7 +6,7 @@ The training and inference Docker images were built by extending the PyTorch 2.1
 ## Model Description
 InceptionTime is an ensemble model. 
 Each model in the ensemble has the same architecture and uses the same hyperparameters.
-The only difference between the models is in the initial values of the weights, which are generated from the Glorot uniform distribution.
+The only difference between the models is in the initial values of the weights, which are sampled from the Glorot uniform distribution.
 
 Each model consists of a stack of blocks, where each block includes three convolutional layers with kernel sizes of 10, 20 and 40 and a max pooling layer.
 The block input is processed by the four layers in parallel, and the four outputs are concatenated before being passed to a batch normalization layer followed by a ReLU activation. 
@@ -27,7 +27,9 @@ a unique predicted probability and, therefore, a unique predicted label, for eac
 **Model Resources:** [[Paper]](https://doi.org/10.1007/s10618-020-00710-y) [[Code]](https://github.com/hfawaz/InceptionTime)
 
 ## SageMaker Algorithm Description
-The algorithm implements the model as described above with no changes.
+The algorithm implements the model as described above with no changes. However, the initial values of the 
+weights are not sampled from the Glorot uniform distribution, but are determined using PyTorch's default 
+initialization method.
 
 ### Training
 The training algorithm has two input data channels: `training` and `validation`. 
@@ -37,9 +39,9 @@ The training and validation datasets should be provided as CSV files. The column
 start with `"y"` (e.g. `"y1"`, `"y2"`, ...), while the column names of the time series values should start with 
 `"x"` (e.g. `"x1"`, `"x2"`, ...). 
 
-Furthermore, the CSV file should contain unique sample ids in a column named `"sample"`, and unique feature ids 
-in a column named `"feature"`. The feature ids are used for identifying the different dimensions of a multivariate 
-time series. When using a univariate time series, the feature ids can be set to a constant value. 
+The CSV file should contain unique sample identifiers in a column named `"sample"`, and unique feature identifiers 
+in a column named `"feature"`. The feature identifiers are used to determine the different dimensions of multivariate 
+time series. When using univariate time series, the feature identifiers can be set to a constant value. 
 
 All the time series should have the same length and the same number of dimensions, and should not contain missing values.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
@@ -82,11 +84,11 @@ See [`notebook.ipynb`](https://github.com/fg-research/inception-time-sagemaker/b
 ### Inference
 The inference algorithm takes as input a CSV file containing the time series values. 
 The column names of the time series values should start with `"x"` (e.g. `"x1"`, `"x2"`, ...).
-Furthermore, the CSV file should contain unique sample ids in a column named `"sample"`, and unique feature ids in a column named `"feature"`.
 
-The feature ids are used for identifying the different dimensions of a multivariate time series. 
-When using a univariate time series, the feature ids can be set to a constant value. 
-The feature ids used for inference should match the ones used for training.
+The CSV file should contain unique sample identifiers in a column named `"sample"`, and unique feature identifiers in a column named `"feature"`.
+The feature identifiers are used to determine the different dimensions of multivariate time series. 
+When using univariate time series, the feature identifiers can be set to a constant value. 
+The feature identifiers used for inference should match the ones used for training.
 
 All the time series should have the same length and the same number of dimensions, and should not contain missing values.
 The time series are scaled internally by the algorithm, there is no need to scale the time series beforehand.
