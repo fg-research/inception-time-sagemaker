@@ -16,7 +16,7 @@ A residual connection is applied between the input time series and the output of
 The residual connection processes the inputs using an additional convolutional layer with a kernel size of 1 followed by a batch normalization layer.
 The processed inputs are then added to the output, which is transformed by a ReLU activation.
 
-The output is passed to an average pooling layer which removes the time dimension, and then to a final linear layer.
+The output of the last block is passed to an average pooling layer which removes the time dimension, and then to a final linear layer.
 
 At inference time, the class probabilities predicted by the different models are averaged in order to obtain 
 a unique predicted probability and, therefore, a unique predicted label, for each class.
@@ -107,7 +107,7 @@ The algorithm supports only real-time inference endpoints. The inference image i
 
 See [`notebook.ipynb`](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) for an example of how to deploy the model to an endpoint, invoke the endpoint and process the response.
 
-**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) 
+**Additional Resources:** [[Sample Notebook]](https://github.com/fg-research/inception-time-sagemaker/blob/master/notebook.ipynb) [[Blog post]](https://fg-research.com/blog/product/posts/inception-time-epilepsy-recognition.html)
 
 ## References
 - H. Ismail Fawaz, B. Lucas, G. Forestier, C. Pelletier, D.F. Schmidt, J. Weber, G.I. Webb, L. Idoumghar, P.A. Muller and F. Petitjean, 
