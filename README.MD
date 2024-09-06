@@ -36,7 +36,7 @@ initialization method.
 The training algorithm has two input data channels: `training` and `validation`. 
 The `training` channel is mandatory, while the `validation` channel is optional.
 
-The training and validation datasets should be provided as CSV files. The column names of the class labels should 
+The training and validation datasets should be provided as CSV files. The column names of the one-hot encoded class labels should 
 start with `"y"` (e.g. `"y1"`, `"y2"`, ...), while the column names of the time series values should start with 
 `"x"` (e.g. `"x1"`, `"x2"`, ...). 
 
@@ -61,9 +61,9 @@ continue training the model on the same dataset or to fine-tune the model on a d
 
 #### Hyperparameters
 The training algorithm takes as input the following hyperparameters:
-- `filters`: `int`. The number of filters of each model.
-- `depth`: `int`. The number of blocks of each model.
-- `models`: `int`. The number of models.
+- `filters`: `int`. The number of filters of each model in the ensemble.
+- `depth`: `int`. The number of blocks of each model in the ensemble.
+- `models`: `int`. The number of models in the ensemble.
 - `lr`: `float`. The learning rate used for training.
 - `batch-size`: `int`. The batch size used for training.
 - `epochs`: `int`. The number of training epochs.
